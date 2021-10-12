@@ -1,11 +1,15 @@
-// 4 Function Calculater
-// Pizzaz 1:
-// Pizzaz 2:
+/*  5 Function Calculater
+    Code: https://github.com/lukebelden/4Calc/blob/main/main.ccp
+    Author: Luke Belden
+    Pizzaz 1: Loop #45 to #57
+    Pizzaz 2: Radius 
+*/
 
 #include <string>
 #include <iostream>
 using namespace std;
 
+// the two number will be input here and then take them to the result 
 int add (int number1, int number2)
 {
   return number1 + number2;
@@ -13,87 +17,84 @@ int add (int number1, int number2)
 
 int subtract (int number1, int number2)
 {
-  return number1 - number2;
+    return number1 - number2;
 }
 
-void multiply ()
+int multiply (int number1, int number2)
 {
-  int number1;
-  int number2;
-  int answer;
-
-  cout << "what the first number will you'll be multiplying?: ";
-  cin >> number1;
-  cout << endl << "what the second number will you'll be multiplying?: ";
-  cin >> number2;
-
-  answer = number1 * number2;
-  cout << number1 << '*' << number2 << '=' << answer << endl;
+    return number1 * number2;
 }
 
-void
-divide ()
+int divide (int number1, int number2)
 {
-  int number1;
-  int number2;
-  int answer;
-
-  cout << "what the first number will you'll be dividing?: ";
-  cin >> number1;
-  cout << endl << "what the second number will you'll be dividing?: ";
-  cin >> number2;
-
-  answer = number1 / number2;
-  cout << number1 << '/' << number2 << '=' << answer << endl;
+    return number1 / number2;
 }
 
-int
-main ()
+float radius (int number1)
 {
-  string Talk;
+    return 3.14 * number1 * number1;
+}
+
+int main ()
+{
+  string talk;
   int operation;
   int number1;
   int number2;
-  int answer;
+  float answer;
 
   cout << "Hello! how are you?" << endl;
-  cin >> Talk;
+  cin >> talk;
   cout << endl << "This is the 4 Function Calculater. ";
 
+// The loop continue until you press 0 to stop the loop
     while (operation != 0)
     {
-        cout << "Choose an operation: 1=add, 2=subtract, 3=multiply, 4=divide, or 0=exit." << endl;
+        cout << "Choose an operation: 1=add, 2=subtract, 3=multiply, 4=divide, 5=radius, or 0=exit." << endl;
         cin >> operation;
         
+// input the number 
         if (operation != 0)
         {
-            cout << "First number: ";
+            cout << endl << "First number: ";
             cin >> number1;
-            
-            cout << "Second number:";
+        }    
+        if (operation != 5,0)
+        {
+            cout << endl << "Second number:";
             cin >> number2;
         }
-        
+
+// number will be output depending on the operation you choose
         switch(operation)
     	{
     	    case 1:
-        	  answer = add(number1, number2);
-        	  cout << number1 << '+' << number2 << '=' << answer << endl;
-        	  break;
+        	    answer = add(number1, number2);
+        	    cout << number1 << " + " << number2 << " = " << answer << endl << endl;
+        	break;
         	  
         	case 2:
         	    answer = subtract(number1, number2);
-        	    cout << number1 << '-' << number2 << '=' << answer << endl;
+        	    cout << number1 << " - " << number2 << " = " << answer << endl << endl;
         	break;
         	
         	case 3:
+        	    answer = multiply(number1, number2);
+        	    cout << number1 << " * " << number2 << " = " << answer << endl << endl;
         	break;
         	
         	case 4:
+        	    answer = divide(number1, number2);
+        	    cout << number1 << " / " << number2 << " = " << answer << endl << endl;
         	break;
         	
+        	case 5:
+                answer = radius(number1);
+        	    cout << answer << " = " << "3.14" << " * " << number1 << " * " << number1 << endl << endl;
+        	break;  
+        	
         	default:
-        	    cout << "That operation doesn't exist";
+        	    cout << endl << "That operation doesn't exist";
     	}
     }
 }
